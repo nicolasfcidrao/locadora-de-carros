@@ -1,0 +1,3 @@
+BMB-0000;Preto;4;true;400.0;Range;true;true;true;ALUGADO
+NES-1212;Branco;3;true;200.0;Veloster;true;true;true;ALUGADO
+BNS-2593;Verde;4;false;250.0;Onix;true;true;true;ALUGADO

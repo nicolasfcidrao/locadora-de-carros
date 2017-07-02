@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-05-28T19:08:29 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio_alugueis" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="78cdcb1d-9e3c-4e0d-92ea-2ce08d0777dd">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="bd_locadora_de_carros"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="placa" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select
+c.placa, c.modelo, a.id, a.carro_placa
+	from
+carro c, aluguel a
+	where
+c.placa = a.carro_placa
+	and
+c.placa = $P{placa}]]>
+	</queryString>
+	<field name="placa" class="java.lang.String"/>
+	<field name="modelo" class="java.lang.String"/>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="carro_placa" class="java.lang.String"/>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="550" height="79" uuid="ea731d6d-2db2-42ff-be79-d40692e6b3c6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Relátorio de alugueis]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="56" splitType="Stretch">
+			<textField>
+				<reportElement x="140" y="10" width="100" height="30" uuid="2f529cd1-ebea-48ad-a6eb-ee63d0688a3a"/>
+				<textFieldExpression><![CDATA[$F{carro_placa}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="10" width="140" height="30" uuid="0a1767a2-6c6c-4f76-adb9-3b5e6df7cdd8"/>
+				<text><![CDATA[Carros alugados com a Placa:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-11" y="4" width="581" height="51" forecolor="#9C9C9C" backcolor="#9C9C9C" uuid="e53c6797-3bc0-44d6-9b96-fd1743f7b93e"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="57" y="15" width="187" height="30" uuid="cfb38c40-d4f2-41c0-b7ff-6f1196ff7e4e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Identificador do aluguel]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="350" y="15" width="100" height="30" uuid="57d1db3c-04b2-4a95-9775-80a8558c3dca"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Modelo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="55" splitType="Stretch">
+			<textField>
+				<reportElement x="60" y="20" width="100" height="30" uuid="4ac032b0-5379-4e82-a680-7c9b754dbe29"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="20" width="100" height="30" uuid="40da0bfd-ed57-47ad-a656-131469e3e68f"/>
+				<textFieldExpression><![CDATA[$F{modelo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="50"/>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="50">
+			<staticText>
+				<reportElement x="380" y="10" width="67" height="30" uuid="ff964c02-79d5-4206-b9d6-f7356c61fb74"/>
+				<text><![CDATA[Gerado em:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="450" y="10" width="100" height="30" uuid="d11fb255-1a18-43b5-a199-c0be360bf5a7"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</lastPageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
